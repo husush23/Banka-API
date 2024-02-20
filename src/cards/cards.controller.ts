@@ -1,42 +1,21 @@
-/*eslint-disable*/
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { Card } from './card.entity';
+
+import { Body, Controller, Post, Get, Param } from '@nestjs/common';
 import { CardsService } from './cards.service';
-import { time } from 'console';
 
 @Controller('cards')
 export class CardsController {
-  constructor(private readonly cardService: CardsService) {}
-  @Get('userId') // ---> /not sure
-  findUsers(@Param('userId') userId: string) {
-    return this.cardService.findAllUsers(userId);
-  }
-
-  @Get('/info/:id')
-  findOneUser(@Param('id') id: number) {
-    return this.cardService.findOneUser(id);
-  }
+  constructor(private readonly cardsService: CardsService) {}
 
   @Post()
-  createCard(@Body() card: Card) {
-    return this.cardService.createCard(card);
+  async createCard(
+    @Body('title') title: string,
+    @Body('userId') userId: number,
+  ) {
+    return this.cardsService.createCard(title, userId);
   }
 
-  @Put(':id')
-  updateCard(@Param('id') id: number, @Body() cardInfo: Partial<Card>) {
-    return this.cardService.updateCard(id, cardInfo);
-  }
-
-  @Delete(':id')
-  delete(@Param('id') id: number) {
-    return this.cardService.deleteCard(id);
+  @Get()
+  async getAllCards() {
+    return this.cardsService.findAllCards();
   }
 }

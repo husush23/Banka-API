@@ -1,9 +1,8 @@
 /*eslint-disable*/
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// import
-import { CardsModule } from './cards/cards.module';
 import { UsersModule } from './users/users.module';
+import { CardsModule } from './cards/cards.module';
 
 @Module({
   imports: [
@@ -13,8 +12,8 @@ import { UsersModule } from './users/users.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    CardsModule,
     UsersModule,
+    CardsModule,
   ],
 })
 export class AppModule {}

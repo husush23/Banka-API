@@ -1,36 +1,30 @@
-/*eslint-disable*/
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Card } from './card.entity';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class CardsService {
   constructor(
-    @InjectRepository(Card) private cardsRepository: Repository<Card>,
+    @InjectRepository(Card)
+    private cardsRepository: Repository<Card>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
-  findAllUsers(userId: string): Promise<Card[]> {
-    return this.cardsRepository.find({ where: { userId } });
-  }
 
-  findOneUser(id: number): Promise<Card> {
-    return this.cardsRepository.findOneBy({ id });
-  }
-
-  async createCard(card: Card): Promise<Card> {
-    return this.cardsRepository.save(card);
-  }
-
-  async updateCard(id: number, cardInfo: Partial<Card>): Promise<Card> {
-    const card = this.cardsRepository.findOneBy({ id });
-    if (card) {
-      await this.cardsRepository.update(id, cardInfo);
-      return this.cardsRepository.findOneBy({ id });
+  async createCard(title: string, userId: number): Promise<Card> {
+    const user = await this.usersRepository.findOneBy({ id: userId });
+    if (!user) {
+      throw new Error('User not found');
     }
-    return null;
+    const newCard = this.cardsRepository.create({ title, user });
+    await this.cardsRepository.save(newCard);
+    return newCard;
   }
 
-  async deleteCard(id: number): Promise<void> {
-    await this.cardsRepository.delete(id);
+  findAllCards(): Promise<Card[]> {
+    return this.cardsRepository.find({ relations: ['user'] });
   }
 }

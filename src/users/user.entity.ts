@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+/*eslint-disable*/
+
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Card } from 'src/cards/card.entity';
 
 @Entity()
 export class User {
@@ -11,5 +14,6 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  // Add other columns as necessary
+  @OneToMany(() => Card, (card) => card.user)
+  cards: Card[];
 }
