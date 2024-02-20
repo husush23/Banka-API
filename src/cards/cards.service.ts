@@ -13,8 +13,8 @@ export class CardsService {
     return this.cardsRepository.find({ where: { userId } });
   }
 
-  findOneUser(userId: string): Promise<Card> {
-    return this.cardsRepository.findOneBy({ userId });
+  findOneUser(id: number): Promise<Card> {
+    return this.cardsRepository.findOneBy({ id });
   }
 
   async createCard(card: Card): Promise<Card> {
