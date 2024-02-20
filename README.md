@@ -87,9 +87,9 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need to :
 
-- To have Ruby installed
-- To have Rails 7 installed also
-- Dependencies for basic gems that project uses
+- To have NodeJS installed
+- To have NestJS installed also
+- Dependencies that project uses
 
 ### Setup
 
@@ -97,11 +97,11 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Kel-nana/Final_group_capstone_backend
+  git clone https://github.com/husush23/Banka-API.git
 ```
 
 ```sh
-  cd Final_group_capstone_backend
+  cd Banka-API
 ```
 
 ### Install
@@ -109,10 +109,7 @@ Clone this repository to your desired folder:
 Install this project gems with:
 
 ```sh
-  bundle install
-  rails bd:create
-  rails db:migrate
-  rails db:seed
+  npm install
 ```
 
 ### Usage
@@ -120,7 +117,7 @@ Install this project gems with:
 To run the project, execute the following command:
 
 ```sh
-  rails server
+  npm start
 ```
 
 ### Run tests
@@ -128,10 +125,6 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 - For eslint run the following:
-
-```sh
-  rubocop
-```
 
 - For Stylelint(CSS) run the following:
 
@@ -142,7 +135,7 @@ To run tests, run the following command:
 - For testig run the following:
 
 ```sh
-  bundle exec rspec
+  npm run test
 ```
 
 <!-- AUTHORS -->
@@ -171,7 +164,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](not-yet).
+Feel free to check the [issues page](https://github.com/husush23/Banka-API/issuest).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
