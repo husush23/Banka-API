@@ -60,11 +60,10 @@ export class CardsService {
     if (!card)
       throw new NotFoundException(`Card with ID "${cardId}" not found`);
 
-    card.balance += amount; // Update the balance
+    card.balance += amount;
     await this.cardsRepository.save(card);
 
-    await this.transactionRepository.save({ card, amount, type: 'deposit' }); // Log the transaction
-
+    await this.transactionRepository.save({ card, amount, type: 'deposit' });
     return card;
   }
 
@@ -75,10 +74,10 @@ export class CardsService {
     if (card.balance < amount)
       throw new BadRequestException('Insufficient funds');
 
-    card.balance -= amount; // Update the balance
+    card.balance -= amount;
     await this.cardsRepository.save(card);
 
-    await this.transactionRepository.save({ card, amount, type: 'withdrawal' }); // Log the transaction
+    await this.transactionRepository.save({ card, amount, type: 'withdrawal' });
 
     return card;
   }

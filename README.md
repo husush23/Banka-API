@@ -1,73 +1,189 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<a name="readme-top"></a>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div align="center">
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <h1><b>Banka API</b></h1>
 
-## Description
+</div>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<!-- TABLE OF CONTENTS -->
 
-## Installation
+# 📗 Table of Contents
 
-```bash
-$ npm install
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 Hosom <a name="about-project"></a>
+
+**Banka** is a simple API that manages user bank banks. It display the transaction made by the user and it's fully CRUD for all endpoints
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a >NestJS</a></li>
+  </ul>
+</details>
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+>
+
+- **User sign-in**
+- **User sign-up**
+- **User sign-out**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+<!-- LIVE DEMO -->
+
+## API documentation <a name="live-demo"></a>
+
+```sh
+http://localhost:3000: root route
+http://localhost:3000/users: get/post users
+http://localhost:3000/users/1 get/delete user
+http://localhost:3000/cards: get/post cards
+http://localhost:3000/cards/1: get/delete card
+http://localhost:3000/cards/1/transactions: get transactions
+http://localhost:3000/cards/1/deposit: post deposit
+http://localhost:3000/cards/1/withdraw delete withdraw
+
 ```
 
-## Running the app
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```bash
-# development
-$ npm run start
+## 💻 Getting Started <a name="getting-started"></a>
 
-# watch mode
-$ npm run start:dev
+To get a local copy up and running, follow these steps.
 
-# production mode
-$ npm run start:prod
+### Prerequisites
+
+In order to run this project you need to :
+
+- To have NodeJS installed
+- To have NestJS installed also
+- Dependencies that project uses
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone https://github.com/husush23/Banka-API.git
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```sh
+  cd Banka-API
 ```
 
-## Support
+### Install
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Install this project gems with:
 
-## Stay in touch
+```sh
+  npm install
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Usage
 
-## License
+To run the project, execute the following command:
 
-Nest is [MIT licensed](LICENSE).
+```sh
+  npm start
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+- For eslint run the following:
+
+- For Stylelint(CSS) run the following:
+
+```sh
+  npx stylelint "**/*.{css,scss}"
+```
+
+- For testig run the following:
+
+```sh
+  npm run test
+```
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Author**
+
+👤 **Hussein Hashi**
+
+- GitHub: [Husush23](https://github.com/husush23)
+- Twitter: [Hussein](https://twitter.com/HusseinKadare2)
+- LinkedIn: [Hussein](https://www.linkedin.com/in/husseinkadare/)
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- **Enhanced UI**
+- **Admin user**
+- **Authorization**
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/husush23/Banka-API/issuest).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you encounter any issues or have questions about the project, feel free to reach out for support.Checkout teh socail links included in the authors, contact any of one or simply contribute this repo by raising a pull request on and always try to check the issues page.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+We would like to express our heartfelt appreciation to anyone who contributes to this project and also out dear developers wo are working to develop this product and make it work
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
