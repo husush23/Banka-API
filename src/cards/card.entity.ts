@@ -1,6 +1,13 @@
 /*eslint-disable*/
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { User } from 'src/users/user.entity';
+import { Transactions } from 'src/trasactions/transaction.entity';
 
 @Entity()
 export class Card {
@@ -15,4 +22,7 @@ export class Card {
 
   @ManyToOne(() => User, (user) => user.cards)
   user: User;
+
+  @OneToMany(() => Transactions, (transaction) => transaction.card)
+  transactions: Transactions[];
 }

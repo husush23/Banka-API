@@ -38,4 +38,30 @@ export class CardsController {
   deleteCard(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.cardsService.deleteCard(id);
   }
+
+  // Transactions
+
+  // Endpoint to deposit money
+  @Post(':id/deposit')
+  deposit(
+    @Param('id', ParseIntPipe) cardId: number,
+    @Body('amount') amount: number,
+  ) {
+    return this.cardsService.deposit(cardId, amount);
+  }
+
+  // Endpoint to withdraw money
+  @Post(':id/withdraw')
+  withdraw(
+    @Param('id', ParseIntPipe) cardId: number,
+    @Body('amount') amount: number,
+  ) {
+    return this.cardsService.withdraw(cardId, amount);
+  }
+
+  // Endpoint to get transaction history
+  @Get(':id/transactions')
+  getTransactions(@Param('id', ParseIntPipe) cardId: number) {
+    return this.cardsService.getTransactions(cardId);
+  }
 }
