@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Hosom <a name="about-project"></a>
+# 📖 Bank-API <a name="about-project"></a>
 
 **Banka** is a simple API that manages user bank banks. It display the transaction made by the user and it's fully CRUD for all endpoints
 
