@@ -1,9 +1,14 @@
 /*eslint-disable*/
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Card } from './card.entity';
 import { User } from '../users/user.entity';
+import { Transactions } from 'src/trasactions/transaction.entity';
 
 @Injectable()
 export class CardsService {
@@ -12,6 +17,8 @@ export class CardsService {
     private cardsRepository: Repository<Card>,
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    @InjectRepository(Transactions)
+    private transactionRepository: Repository<Transactions>,
   ) {}
 
   async createCard(
@@ -46,5 +53,37 @@ export class CardsService {
     if (result.affected === 0) {
       throw new NotFoundException(`Card with ID "${id}" not found`);
     }
+  }
+
+  async deposit(cardId: number, amount: number): Promise<Card> {
+    const card = await this.cardsRepository.findOneBy({ id: cardId });
+    if (!card)
+      throw new NotFoundException(`Card with ID "${cardId}" not found`);
+
+    card.balance += amount; // Update the balance
+    await this.cardsRepository.save(card);
+
+    await this.transactionRepository.save({ card, amount, type: 'deposit' }); // Log the transaction
+
+    return card;
+  }
+
+  async withdraw(cardId: number, amount: number): Promise<Card> {
+    const card = await this.cardsRepository.findOneBy({ id: cardId });
+    if (!card)
+      throw new NotFoundException(`Card with ID "${cardId}" not found`);
+    if (card.balance < amount)
+      throw new BadRequestException('Insufficient funds');
+
+    card.balance -= amount; // Update the balance
+    await this.cardsRepository.save(card);
+
+    await this.transactionRepository.save({ card, amount, type: 'withdrawal' }); // Log the transaction
+
+    return card;
+  }
+
+  async getTransactions(cardId: number): Promise<Transactions[]> {
+    return this.transactionRepository.find({ where: { card: { id: cardId } } });
   }
 }
