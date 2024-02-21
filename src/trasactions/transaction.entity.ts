@@ -6,7 +6,7 @@ import {
   ManyToOne,
   CreateDateColumn,
 } from 'typeorm';
-import { Card } from 'src/cards/card.entity';
+import { Card } from '../cards/card.entity';
 
 @Entity()
 export class Transactions {
