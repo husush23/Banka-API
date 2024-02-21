@@ -1,7 +1,7 @@
 /*eslint-disable*/
 
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Card } from 'src/cards/card.entity';
+import { Card } from '../cards/card.entity';
 
 @Entity()
 export class User {

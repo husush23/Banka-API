@@ -8,7 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Card } from './card.entity';
 import { User } from '../users/user.entity';
-import { Transactions } from 'src/trasactions/transaction.entity';
+import { Transactions } from '../trasactions/transaction.entity';
 
 @Injectable()
 export class CardsService {
@@ -58,7 +58,7 @@ export class CardsService {
   async deposit(cardId: number, amount: number): Promise<Card> {
     const card = await this.cardsRepository.findOneBy({ id: cardId });
     if (!card)
-      throw new NotFoundException(`Card with ID "${cardId}" not found`);
+      throw new NotFoundException(`Card with ID of "${cardId}" not found`);
 
     card.balance += amount;
     await this.cardsRepository.save(card);
@@ -70,7 +70,7 @@ export class CardsService {
   async withdraw(cardId: number, amount: number): Promise<Card> {
     const card = await this.cardsRepository.findOneBy({ id: cardId });
     if (!card)
-      throw new NotFoundException(`Card with ID "${cardId}" not found`);
+      throw new NotFoundException(`Card with ID of "${cardId}" not found`);
     if (card.balance < amount)
       throw new BadRequestException('Insufficient funds');
 
